@@ -358,11 +358,19 @@ app.get("/health", (_, res) => {
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(CLIENT_BUILD_PATH));
-  app.get("/(.*)", (_req, res) => {
+  // Express 5 with path-to-regexp v7 requires different syntax
+  // Using middleware approach for catch-all instead of route pattern
+  app.use((req, res, next) => {
+    // Skip API routes
+    if (req.path.startsWith('/socket.io') || req.path === '/health') {
+      return next();
+    }
+    // Serve index.html for all other routes (SPA fallback)
     res.sendFile(path.join(CLIENT_BUILD_PATH, "index.html"));
   });
 }
 
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+// Bind to 0.0.0.0 for cloud environments
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server listening on 0.0.0.0:${PORT}`);
 });
