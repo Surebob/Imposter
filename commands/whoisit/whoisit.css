@@ -1,0 +1,14 @@
+/* Override terminal font for whoisit command */
+.terminal {
+	font-family: "Lucida Console", "Consolas", monospace !important;
+	font-size: max(1rem, 1.8vmin) !important;
+	line-height: max(1.2rem, 2vmin) !important;
+	padding-top: 1rem !important;
+}
+
+/* Ensure all typed text uses consistent font and size */
+.terminal * {
+	font-family: "Lucida Console", "Consolas", monospace !important;
+	font-size: max(1rem, 1.8vmin) !important;
+	line-height: max(1.2rem, 2vmin) !important;
+}
