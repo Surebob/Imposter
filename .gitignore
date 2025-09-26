@@ -15,9 +15,8 @@ client/dist
 client/temp-ref-files/bin.js
 .gitignore
 .gitignore
-client/temp-ref-files/osn.js
-client/temp-ref-files/utils.js
 client/temp-ref-files/sketch.js
-.gitignore
+client/temp-ref-files/utils.js
 client/temp-ref-files/data.js
-.gitignore
+client/temp-ref-files/osn.js
+client/temp-ref-files/macrodata.js
