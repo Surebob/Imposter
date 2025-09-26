@@ -358,7 +358,7 @@ app.get("/health", (_, res) => {
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(CLIENT_BUILD_PATH));
-  app.get("*", (_req, res) => {
+  app.get("/*", (_req, res) => {
     res.sendFile(path.join(CLIENT_BUILD_PATH, "index.html"));
   });
 }
