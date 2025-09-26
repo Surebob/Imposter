@@ -365,80 +365,86 @@ export default function App() {
     }
   }
 
-  if (!player || !room) {
-    return (
-      <div className="container landing">
-        <header className="landing-header">
-          <span className="badge">Social deception</span>
-          <h1>Imposter</h1>
-          <p className="muted">
-            Assemble a crew, trade razor-sharp clues, and flush out the fraud before your shared word is blown.
-          </p>
-          <ul className="hero-points">
-            <li>
-              <strong>Fast rounds.</strong> Snap from lobby to vote in minutes.
-            </li>
-            <li>
-              <strong>One impostor.</strong> They see a warped word—keep them guessing.
-            </li>
-            <li>
-              <strong>Zero fluff.</strong> Built for game nights, stream sessions, and LAN chaos.
-            </li>
-          </ul>
-        </header>
-        <main className="panel-stack">
-          <form className="panel form-card" onSubmit={handleCreateRoom}>
-            <h2>Create a room</h2>
-            <p className="muted">Spin up a code and take the host seat instantly.</p>
-            <label className="field">
-              <span>Display name</span>
-              <input name="name" type="text" placeholder="Ghost" maxLength={20} required />
-            </label>
-            <button className="primary" type="submit">
-              Launch lobby
-            </button>
-          </form>
-          <form className="panel form-card" onSubmit={handleJoinRoom}>
-            <h2>Join a room</h2>
-            <p className="muted">Drop into an existing match with a friend’s code.</p>
-            <label className="field">
-              <span>Display name</span>
-              <input name="name" type="text" placeholder="Cipher" maxLength={20} required />
-            </label>
-            <label className="field">
-              <span>Room code</span>
-              <input name="code" type="text" placeholder="ABCD" maxLength={6} required />
-            </label>
-            <button className="primary" type="submit">
-              Enter lobby
-            </button>
-          </form>
-        </main>
-        {error ? <p className="error">{error}</p> : null}
-      </div>
-    );
-  }
-
-  return (
+  const view = !player || !room ? (
+    <div className="container landing">
+      <header className="landing-header">
+        <span className="badge">Macrodata protocol</span>
+        <h1>Imposter</h1>
+        <p className="muted">
+          Welcome operative. Curate your clues, pinpoint the fraud, and protect the shared intelligence.
+        </p>
+        <ul className="hero-points">
+          <li>
+            <strong>Procedural rounds:</strong> Host instantly, rotate stages automatically.
+          </li>
+          <li>
+            <strong>Asymmetric intel:</strong> The impostor sees a divergent codename. Everyone else defends the truth.
+          </li>
+          <li>
+            <strong>Signal clean-up:</strong> Crisp socket sync, zero lobby noise, built for desktop ops.
+          </li>
+        </ul>
+      </header>
+      <main className="panel-stack">
+        <form className="panel form-card" onSubmit={handleCreateRoom}>
+          <h2>Create channel</h2>
+          <p className="muted">Issue a four-letter access code. You become facility lead.</p>
+          <label className="field">
+            <span>Designation</span>
+            <input name="name" type="text" placeholder="EMBER" maxLength={20} required />
+          </label>
+          <button className="primary" type="submit">
+            Initiate session
+          </button>
+        </form>
+        <form className="panel form-card" onSubmit={handleJoinRoom}>
+          <h2>Join channel</h2>
+          <p className="muted">Already briefed? Enter credentials to sync with command.</p>
+          <label className="field">
+            <span>Designation</span>
+            <input name="name" type="text" placeholder="NEXUS" maxLength={20} required />
+          </label>
+          <label className="field">
+            <span>Access code</span>
+            <input name="code" type="text" placeholder="ABCD" maxLength={6} required />
+          </label>
+          <button className="primary" type="submit">
+            Authenticate
+          </button>
+        </form>
+      </main>
+      {error ? <p className="error">{error}</p> : null}
+    </div>
+  ) : (
     <div className="container">
       <header className="room-header">
         <div>
           <h1>Imposter</h1>
-          <p className="muted">Room {room.code}</p>
+          <p className="muted">Channel {room.code}</p>
           {wordInfo ? (
             <p className="muted">
-              You are {wordInfo.isImpostor ? "the impostor" : "on the majority"}. Keep your word secret!
+              Status: {wordInfo.isImpostor ? "IMPOSTOR RISK" : "TRUSTED"}. Guard your codename.
             </p>
           ) : null}
         </div>
         <div className="header-actions">
           <button onClick={handleLeaveRoom} className="secondary">
-            Leave room
+            Terminate link
           </button>
         </div>
       </header>
       {error ? <p className="error">{error}</p> : null}
       {renderStage()}
+    </div>
+  );
+
+  return (
+    <div className="crt-shell">
+      <div className="scanlines" aria-hidden="true" />
+      <div className="crt-frame">
+        <div className="crt-bezel" />
+        {view}
+      </div>
     </div>
   );
 }
