@@ -367,39 +367,53 @@ export default function App() {
 
   if (!player || !room) {
     return (
-      <div className="container">
-        <header>
+      <div className="container landing">
+        <header className="landing-header">
+          <span className="badge">Social deception</span>
           <h1>Imposter</h1>
           <p className="muted">
-            A social deduction party game. Give clever clues, sniff out the impostor, and protect your secret word.
+            Assemble a crew, trade razor-sharp clues, and flush out the fraud before your shared word is blown.
           </p>
+          <ul className="hero-points">
+            <li>
+              <strong>Fast rounds.</strong> Snap from lobby to vote in minutes.
+            </li>
+            <li>
+              <strong>One impostor.</strong> They see a warped word—keep them guessing.
+            </li>
+            <li>
+              <strong>Zero fluff.</strong> Built for game nights, stream sessions, and LAN chaos.
+            </li>
+          </ul>
         </header>
-        <div className="card-grid">
-          <form className="panel" onSubmit={handleCreateRoom}>
-            <h2>Create room</h2>
+        <main className="panel-stack">
+          <form className="panel form-card" onSubmit={handleCreateRoom}>
+            <h2>Create a room</h2>
+            <p className="muted">Spin up a code and take the host seat instantly.</p>
             <label className="field">
               <span>Display name</span>
-              <input name="name" type="text" placeholder="Jane" maxLength={20} required />
+              <input name="name" type="text" placeholder="Ghost" maxLength={20} required />
             </label>
             <button className="primary" type="submit">
-              Create
+              Launch lobby
             </button>
           </form>
-          <form className="panel" onSubmit={handleJoinRoom}>
-            <h2>Join room</h2>
+          <form className="panel form-card" onSubmit={handleJoinRoom}>
+            <h2>Join a room</h2>
+            <p className="muted">Drop into an existing match with a friend’s code.</p>
             <label className="field">
               <span>Display name</span>
-              <input name="name" type="text" placeholder="Jane" maxLength={20} required />
+              <input name="name" type="text" placeholder="Cipher" maxLength={20} required />
             </label>
             <label className="field">
               <span>Room code</span>
               <input name="code" type="text" placeholder="ABCD" maxLength={6} required />
             </label>
             <button className="primary" type="submit">
-              Join
+              Enter lobby
             </button>
           </form>
-        </div>
+        </main>
         {error ? <p className="error">{error}</p> : null}
       </div>
     );
