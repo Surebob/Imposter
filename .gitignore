@@ -1,53 +1,14 @@
-# Dependencies
-node_modules/
-vendor/
-venv/
-env/
-.env
-
-# Build outputs
-dist/
-build/
-out/
-*.exe
-*.dll
-*.so
-*.dylib
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Logs
-*.log
+node_modules
+client/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Testing
-coverage/
-.coverage
-*.cover
-.pytest_cache/
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.Python
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-*.bak
-*.backup
-
-# OS files
-Thumbs.db
-Desktop.ini
+pnpm-debug.log*
+.env
+.env.*
+dist
+client/dist
+*.tsbuildinfo
+.DS_Store
+.idea
+.vscode
