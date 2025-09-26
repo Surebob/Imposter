@@ -438,11 +438,11 @@ export default function App() {
     </div>
   );
 
+  // Floating numbers now handled by p5.js CRT overlay
+
   return (
     <div className="crt-shell">
-      <div className="scanlines" aria-hidden="true" />
       <div className="crt-frame">
-        <div className="crt-bezel" />
         {view}
       </div>
     </div>
